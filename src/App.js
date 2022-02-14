@@ -1,21 +1,19 @@
-import React, {useState, createContext} from "react";
-import Form from "./Form";
-import Display from "./Display";
-import "./style.css";
-
-export const userContext = createContext(null)
+import React from 'react';
+import Form from './Form';
+import Display from './Display';
+import './style.css';
+import { UserContextProvider } from './context/userContext';
 
 const App = () => {
-  const [userName, setUserName] = useState('')
   return (
     <div>
-      <userContext.Provider value={{userName, setUserName}}>
-      <h1>Hello StackBlitz!</h1>
-      <Form/>
-      <Display/>
-      </userContext.Provider>
+      <UserContextProvider>
+        <h1>Hello StackBlitz!</h1>
+        <Form />
+        <Display />
+      </UserContextProvider>
     </div>
   );
-}
+};
 
-export default App
+export default App;
